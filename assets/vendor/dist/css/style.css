@@ -1,0 +1,60 @@
+.skin-blue .main-header .navbar {
+       background: url(../img/head-bac.png) no-repeat no-repeat;
+    background-position: center;
+    background-repeat: repeat;
+}
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+       background: url(../img/side-bg.png) no-repeat no-repeat;
+    background-position: center;
+    background-repeat: repeat;
+}
+.bg-profile{
+       background: url(../img/profile-bg.jpg) no-repeat no-repeat;
+  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	height:100px;
+	
+}
+.login-bg{
+       background: url(../img/login-bg.png) no-repeat no-repeat;
+  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.login-box-body, .register-box-body {
+    background: #fff;
+    padding: 20px;
+    border-top: 0;
+    color: #666;
+}
+.text-white{
+ color:#fff;
+}
+.hexagon {
+  position: relative;
+  width: 300px; 
+  height: 173.21px;
+  background-color: #fff;
+  margin: 86.60px 0;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 86.60px solid #fff;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 86.60px solid #fff;
+}
