@@ -591,12 +591,12 @@
 					</span>
 				  </a>
 			</li>-->		
-			<!--<li class="treeview">
+			<li class="treeview">
 				  <a href="<?php echo base_url('attendancereports/student'); ?>">
 					<i class="fa fa-user"></i> <span>Attendance Reports List</span>
 					
 				  </a>
-			</li>-->	
+			</li>	
 			<!--<li class="treeview">
 				  <a href="<?php echo base_url('transportation/student_transport_registration'); ?>">
 					<i class="fa fa-user"></i> <span>Student Transport Registration</span>
