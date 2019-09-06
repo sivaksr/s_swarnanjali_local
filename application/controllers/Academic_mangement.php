@@ -58,7 +58,7 @@ class Academic_mangement extends In_frontend {
 				
 				$post=$this->input->post();
 				//echo '<pre>';print_r($post);
-				if(isset($post['submit']) && $post['submit']=='check'){
+				if(isset($post['signup']) && $post['signup']=='submit'){
 					$date=explode('/',$post['date']);
 					$date_format=$date[2].'-'.$date[0].'-'.$date[1];
 					$data['student_attandance']=$this->Academic_model->get_student_attendance_report($post['class_id'],$date_format);

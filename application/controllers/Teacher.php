@@ -222,6 +222,26 @@ public function __construct()
 			redirect('home');
 		}
 	}
+	public function viewsyllabus()
+	{	
+		if($this->session->userdata('userdetails'))
+		{
+			$login_details=$this->session->userdata('userdetails');
+				if($login_details['role_id']==6){
+					$detail=$this->School_model->get_resources_details($login_details['u_id']);
+					$data['exam_syllabus_list']=$this->Teacher_model->get_exam_syllabus_list($detail['s_id']);
+				//echo '<pre>';print_r($data);exit;
+					$this->load->view('teacher/view-syllabus',$data);
+					$this->load->view('html/footer');
+				}else{
+						$this->session->set_flashdata('error',"you don't have permission to access");
+						redirect('dashboard');
+				}
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('home');
+		}
+	}
 	
 	
 	

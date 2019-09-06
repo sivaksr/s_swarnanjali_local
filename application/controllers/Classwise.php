@@ -676,9 +676,9 @@ public function __construct()
 							//echo $this->db->last_query();exit;
 							if(count($statusdata)>0){
 								if($status==1){
-								$this->session->set_flashdata('success',"Time slot succcessfully deactivated.");
+								$this->session->set_flashdata('success',"Time slot successfully  deactivated.");
 								}else{
-									$this->session->set_flashdata('success',"Time slot succcessfully activated.");
+									$this->session->set_flashdata('success',"Time slot successfully activated.");
 								}
 								redirect('classwise/timetable/'.base64_encode(1));
 							}else{

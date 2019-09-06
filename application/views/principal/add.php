@@ -54,9 +54,9 @@
                                                <div class="row">
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <label class=" control-label">Instractions</label>
+                                                        <label class=" control-label">Instructions</label>
                                                         <div class="">
-                                                            <textarea class="form-control" name="instractions" id="instractions" placeholder="Enter Instractions" rows="5"></textarea>
+                                                            <textarea class="form-control" name="instractions" id="instractions" placeholder="Enter Instructions" rows="5"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -113,7 +113,7 @@ $(document).ready(function() {
 			instractions: {
                  validators: {
 					notEmpty: {
-						message: 'Instractions is required'
+						message: 'Instructions is required'
 					}
 				}
             },

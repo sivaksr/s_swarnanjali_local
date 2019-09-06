@@ -22,7 +22,7 @@
                   <th>Teacher Modules</th>
                   <th>Teachers</th>
                   <th>Mobile Numbers</th>
-                  <th>Instractions</th>
+                  <th>Instructions</th>
                   <th>Date</th>
                 </tr>
                 </thead>

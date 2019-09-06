@@ -11,7 +11,7 @@
             <!-- /.box-header -->
             <!-- form start -->
 			<div style="padding:20px;">
-            <form id="defaultForm1" method="POST" class="" action="<?php echo base_url('academic_mangement/attendance'); ?>">
+            <form id="defaultForm" method="POST" class="" action="<?php echo base_url('academic_mangement/attendance'); ?>">
 						<div class="col-md-4">
 							<div class="form-group">
 							<label class=" control-label">Class</label>
@@ -35,17 +35,17 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" name="date" class="form-control pull-right" id="datepicker" autocomplete="off" required>
+                  <input type="text" name="date" class="form-control pull-right" id="datepicker1" autocomplete="off" required>
                 </div>
                 <!-- /.input group -->
               </div>
                         </div>		
-						<div class="col-md-3">
+						<div class="col-md-12">
 							<div class="form-group">
 							<label> &nbsp;</label>
 
 							<div class="input-group ">
-							  <button type="submit"  class="btn btn-primary " name="submit" value="check">Check</button>
+<button type="submit" class="btn btn-primary pull-right " name="signup" value="submit">Check</button>							</div>
 							</div>
 							<!-- /.input group -->
 						  </div>
@@ -135,36 +135,41 @@
    
 </div>
   
-  <script type="text/javascript">
+  
+<script type="text/javascript">
   
 $(document).ready(function() {
-   
+    $('#datepicker1').datepicker({
+      autoclose: true
+    });
     $('#defaultForm').bootstrapValidator({
 //      
         fields: {
-            firstName: {
-                group: '.col-lg-4',
+            class_id: {
                 validators: {
                     notEmpty: {
-                        message: 'The first name is required and cannot be empty'
+                        message: 'Class is required '
+                    }
+                }
+            },
+            	date: {
+                validators: {
+					notEmpty: {
+								message: 'Date is required'
+						},
+                    date: {
+                        format: 'MM/DD/YYYY',
+                        message: 'The value is not a valid date'
                     }
                 }
             },
             
-            captcha: {
-                validators: {
-                    callback: {
-                        message: 'Wrong answer',
-                        callback: function(value, validator) {
-                            var items = $('#captchaOperation').html().split(' '), sum = parseInt(items[0]) + parseInt(items[2]);
-                            return value == sum;
-                        }
-                    }
-                }
-            }
+            
         }
     });
-
+    $('#datepicker1').on('changeDate ', function(e) {
+		$('#defaultForm').bootstrapValidator('revalidateField', 'date');
+		});
     // Validate the form manually
     $('#validateBtn').click(function() {
         $('#defaultForm').bootstrapValidator('validate');

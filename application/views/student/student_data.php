@@ -9,7 +9,7 @@
                   <th>Admission Number</th>
                   <th>Parent Name</th>
                   <th>Contact No</th>
-                  <th>Partent Email</th>
+                  <th>Parent Email</th>
                   <th>Address</th>
                   
                 </tr>
@@ -40,7 +40,7 @@
                   <th>Admission Number</th>
                   <th>Parent Name</th>
                   <th>Contact No</th>
-                  <th>Partent Email</th>
+                  <th>Parent Email</th>
                   <th>Address</th>
                 </tr>
                 </tfoot>

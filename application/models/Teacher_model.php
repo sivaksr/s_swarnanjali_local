@@ -70,6 +70,15 @@ class Teacher_model extends CI_Model
 		$this->db->where('t_m_c_id',$t_m_c_id);
 		return $this->db->update('teacher_module_wise_class',$data);
 	}
+	/* view syllabus */
+	public function get_exam_syllabus_list($s_id){
+	$this->db->select('exam_syllabus.*,class_list.name,section')->from('exam_syllabus');
+	$this->db->join('class_list ', 'class_list.id = exam_syllabus.class_id', 'left');
+	$this->db->where('exam_syllabus.s_id',$s_id);
+	$this->db->where('exam_syllabus.status',1);
+    return $this->db->get()->result_array();
+	}
+	
 	
 	
  }

@@ -513,6 +513,14 @@
 				  </a>
 			</li>-->
 			<li class="treeview">
+				  <a href="<?php echo base_url('teacher/viewsyllabus'); ?>">
+					<i class="fa fa-user"></i> <span>View Syllabus</span>
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-left pull-right"></i>
+					</span>
+				  </a>
+			</li>
+			<li class="treeview">
 				  <a href="#">
 					<i class="fa fa-user"></i> <span>Home Work</span>
 					<span class="pull-right-container">
@@ -575,14 +583,14 @@
 			</li>
           </ul>
         </li>		
-			<li class="treeview">
+			<!--<li class="treeview">
 				  <a href="<?php echo base_url('examination/announcement');?>">
 					<i class="fa fa-user"></i> <span>Announcement  </span>
 					<span class="pull-right-container">
 					  <i class="fa fa-angle-left pull-right"></i>
 					</span>
 				  </a>
-			</li>		
+			</li>-->		
 			<li class="treeview">
 				  <a href="<?php echo base_url('attendancereports/student'); ?>">
 					<i class="fa fa-user"></i> <span>Attendance Reports List</span>
