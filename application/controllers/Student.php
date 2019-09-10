@@ -24,7 +24,7 @@ public function __construct()
 
 				//echo '<pre>';print_r($data);exit;
 				$this->load->view('student/add-student',$data);
-				$this->load->view('html/footer');
+				$this->load->view('html/footer2');
 			}else{
 					$this->session->set_flashdata('error',"you don't have permission to access");
 					redirect('dashboard');
@@ -60,7 +60,6 @@ public function __construct()
 			redirect('home');
 		}
 	}
-	
 	public function edit()
 	{	
 		if($this->session->userdata('userdetails'))
@@ -73,7 +72,7 @@ public function __construct()
 				$data['class_list']=$this->Student_model->get_school_class_list($detail['s_id']);
 				//echo '<pre>';print_r($data);exit;
 				$this->load->view('student/edit-student',$data);
-				$this->load->view('html/footer');
+				$this->load->view('html/footer2');
 			}else{
 					$this->session->set_flashdata('error',"you don't have permission to access");
 					redirect('dashboard');
@@ -278,6 +277,9 @@ public function __construct()
 						'doj'=>isset($post['doj'])?$post['doj']:'',
 						'class_name'=>isset($post['class_name'])?$post['class_name']:'',
 						'roll_number'=>isset($post['roll_number'])?$post['roll_number']:'',
+						'fee_amount'=>isset($post['fee_amount'])?$post['fee_amount']:'',
+						'fee_terms'=>isset($post['fee_terms'])?$post['fee_terms']:'',
+						'pay_amount'=>isset($post['pay_amount'])?$post['pay_amount']:'',
 						'parent_name'=>isset($post['parent_name'])?$post['parent_name']:'',
 						'parent_gender'=>isset($post['parent_gender'])?$post['parent_gender']:'',
 						'parent_email'=>isset($post['parent_email'])?$post['parent_email']:'',
@@ -292,6 +294,16 @@ public function __construct()
 					//echo '<pre>';print_r($addstudent);exit;
 					$save_student=$this->Home_model->update_profile_details($post['student_id'],$updatestudent);
 						if(count($save_student)>0){
+							$pay_details=array(
+							'school_id'=>isset($detail['s_id'])?$detail['s_id']:'',
+							'class_name'=>isset($post['class_name'])?$post['class_name']:'',
+							'fee_amount'=>isset($post['fee_amount'])?$post['fee_amount']:'',
+							'fee_terms'=>isset($post['fee_terms'])?$post['fee_terms']:'',
+							'status'=>1,
+							'create_at'=>date('Y-m-d H:i:s'),
+							'create_by'=>$login_details['u_id'],
+							);
+						$fee=$this->Student_model->update_student_fee_payment($detail['u_id'],$pay_details);
 							$this->session->set_flashdata('success','Student details successfully Updated');
 							redirect('student/index/'.base64_encode(1));
 							
@@ -329,6 +341,7 @@ public function __construct()
 							'update_at'=>date('Y-m-d H:i:s')
 							);
 							$statusdata=$this->Home_model->update_profile_details($r_id,$stusdetails);
+							$statusdata=$this->Home_model->upadte_student_fee_status($r_id,$stusdetails);
 							if(count($statusdata)>0){
 								if($status==1){
 								$this->session->set_flashdata('success',"Student successfully Deactivate.");
@@ -365,8 +378,9 @@ public function __construct()
 					$r_id=base64_decode($this->uri->segment(3));
 					if($r_id!=''){
 						$detail=$this->Student_model->get_student_details($r_id);
-						unlink('assets/adminpic/'.$detail['profile_pic']);
 						$statusdata=$this->Student_model->delete_student($r_id);
+						$statusdatas=$this->Student_model->delete_student_fee($r_id);
+							//echo'<pre>';print_r($statusdatas);exit;
 							if(count($statusdata)>0){
 								$this->session->set_flashdata('success',"Student successfully Deleted.");
 

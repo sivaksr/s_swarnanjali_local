@@ -74,7 +74,10 @@ class Home_model extends CI_Model
 		$this->db->where('u_id',$u_id);
     	return $this->db->update("users",$data);
 	}
-	
+ public function upadte_student_fee_status($s_id,$data){
+		$this->db->where('s_id',$s_id);
+    	return $this->db->update("student_fee",$data);
+	}
 	public  function get_roles_list(){
 		$this->db->select('id,name')->from('role');
 		$this->db->where('id!=',1);

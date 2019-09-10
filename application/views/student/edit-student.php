@@ -248,8 +248,40 @@
 						</div>
 								
 								
+								
+								
 							</div>
-							
+							<div class="row">
+								<div class=" col-md-4">
+									<div class="form-group">
+									<label class=" control-label">Total Fee Amount</label>
+										<div class="">
+											<input type="text" class="form-control" name="fee_amount" id="fee_amount" value="<?php echo isset($student_list['fee_amount'])?$student_list['fee_amount']:''; ?>" placeholder="Enter Fee Amount" />
+										</div>
+									</div>
+								</div>
+								<div class=" col-md-4">
+									<div class="form-group">
+									<label class=" control-label">Fee Terms</label>
+										<div class="">
+										<select name="fee_terms" id="fee_terms" class="form-control">
+										<option value="">Select</option>
+											<option value="1" <?php if($student_list['fee_terms']==1){  echo "selected"; }?>>1</option>
+											<option value="2" <?php if($student_list['fee_terms']==2){  echo "selected"; }?>>2</option>
+											<option value="3" <?php if($student_list['fee_terms']==3){  echo "selected"; }?>>3</option>
+										</select>
+										</div>
+									</div>
+								</div>
+								<div class=" col-md-4">
+									<div class="form-group">
+									<label class=" control-label">Pay Amount</label>
+										<div class="">
+											<input type="text" class="form-control" readonly="true" name="pay_amount" id="pay_amount" value="<?php echo isset($student_list['pay_amount'])?$student_list['pay_amount']:''; ?>" placeholder="Enter Pay Amount" />
+										</div>
+									</div>
+								</div>
+							</div>
 							<div class="clearfix">&nbsp;</div>
 							<h3 class="box-title"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Parent Detail</h3>
 						<div class="form-group">
@@ -356,7 +388,29 @@
 	</section>
  </div>
  </div>
+<!-- load jQuery UI CSS theme -->
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" type="text/css" media="all">
+ <script>
+ $(function() {
+  var $dp1 = $("#datepicker1");
+  $dp1.datepicker({
+    changeYear: true,
+    changeMonth: true,
+      minDate:0,
+    dateFormat: "mm/dd/yy",
+    yearRange: "-100:+80",
+  });
 
+  var $dp2 = $("#datepicker");
+  $dp2.datepicker({
+    changeYear: true,
+    changeMonth: true,
+	maxDate:0,
+    yearRange: "-80:+80",
+    dateFormat: "mm/dd/yy",
+  });
+});
+</script>
  
  <script>
 
@@ -402,9 +456,7 @@ $(function(){
             },
 			dob: {
                 validators: {
-					notEmpty: {
-								message: 'Date of Birth is required'
-						},
+					
                     date: {
                         format: 'MM/DD/YYYY',
                         message: 'The value is not a valid date'
@@ -577,9 +629,7 @@ $(function(){
             },
 			doj: {
                  validators: {
-					 notEmpty: {
-								message: 'Date of Join is required'
-						},
+					
 					date: {
                         format: 'MM/DD/YYYY',
                         message: 'The value is not a valid date'

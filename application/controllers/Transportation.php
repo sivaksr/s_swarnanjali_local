@@ -1315,6 +1315,7 @@ $data['route_stops']=$this->Transportation_model->routes_stops($data['transporti
 							'updated_at'=>date('Y-m-d H:i:s')
 							);
 							$statusdata=$this->Transportation_model->status_student_transport_registration_details($s_t_id,$stusdetails);
+							$statusdata=$this->Transportation_model->status_update_student_transport_registration_details($s_t_id,$stusdetails);
 							if(count($statusdata)>0){
 								if($status==1){
 								$this->session->set_flashdata('success',"student transport registration details details successfully deactivated.");
@@ -1352,6 +1353,7 @@ $data['route_stops']=$this->Transportation_model->routes_stops($data['transporti
 					$s_t_id=base64_decode($this->uri->segment(3));
 					
 							$deleted_data=$this->Transportation_model->deleted_student_transport_registration_details($s_t_id,$stusdetails);
+							$deleted_datas=$this->Transportation_model->deleted_student_bus_payments_details($s_t_id,$stusdetails);
 							if(count($deleted_data)>0){
 								$this->session->set_flashdata('success',"student transport registration details details successfully deleted.");
 								

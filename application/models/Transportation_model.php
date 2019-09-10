@@ -466,9 +466,17 @@ class Transportation_model extends CI_Model
 		 $this->db->where('s_t_id',$s_t_id);
 		 return $this->db->update('student_transport',$data); 
 	 }
+	 public function status_update_student_transport_registration_details($s_t_id,$data){
+		 $this->db->where('s_t_id',$s_t_id);
+		 return $this->db->update('student_bus_payment',$data); 
+	 }
 	public function deleted_student_transport_registration_details($s_t_id){
 		$this->db->where('s_t_id',$s_t_id);
 		return $this->db->delete('student_transport');
+	}
+	public function deleted_student_bus_payments_details($s_t_id){
+		$this->db->where('s_t_id',$s_t_id);
+		return $this->db->delete('student_bus_payment');
 	}
 	public  function get_active_vehical_list($stop_id,$s_id){
 		$this->db->select('vehicle_details.v_id,vehicle_details.registration_no')->from('vehicle_stops');

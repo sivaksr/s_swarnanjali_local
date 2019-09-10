@@ -1,33 +1,24 @@
-<head>
-  <!-- Theme style -->
-<script src="<?php echo base_url(); ?>assets/vendor/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url(); ?>assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/vendor/dist/js/bootstrapValidator.min.js"></script>
-</head>
 
+
+<script src="<?php echo base_url(); ?>assets/vendor/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/vendor/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<!-- bootstrap datepicker -->
-<script src="<?php echo base_url(); ?>assets/vendor/plugins/select2/select2.full.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
 
+<script src="<?php echo base_url(); ?>assets/vendor/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="<?php echo base_url(); ?>assets/vendor/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="<?php echo base_url(); ?>assets/vendor/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/vendor/plugins/daterangepicker/daterangepicker.js"></script>
 
-<script src="<?php echo base_url(); ?>assets/vendor/plugins/datepicker/bootstrap-datepicker.js"></script>
 <!-- Slimscroll -->
 <script src="<?php echo base_url(); ?>assets/vendor/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>assets/vendor/plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<!-- AdminLTE for demo purposes -->
-<!-- fullCalendar 2.2.5 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/vendor/plugins/fullcalendar/fullcalendar.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/vendor/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/vendor/plugins/iCheck/icheck.min.js"></script>
+
+
 <script>
       $('#summernote').summernote({
         placeholder: 'Hello stand alone ui',

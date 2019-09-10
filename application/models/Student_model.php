@@ -83,7 +83,11 @@ class Student_model extends CI_Model
 		$this->db->where('u_id',$u_id);
 		return $this->db->delete('users');
 	}
-	
+	public  function delete_student_fee($s_id){
+		$this->db->where('s_id',$s_id);
+		$this->db->set('status','2');
+		return $this->db->delete('student_fee');
+	}
 	function get_student_details($u_id){
 		$this->db->select('schools.scl_bas_name,schools.scl_bas_add1,schools.scl_bas_logo,users.*,class_list.name as classname,class_list.section')->from('users');
 		$this->db->join('class_list ', 'class_list.id = users.class_name', 'left');
@@ -601,6 +605,9 @@ class Student_model extends CI_Model
 		return $this->db->get()->row_array();
 	}
 	/* student payment reports */
+	
+	
+	
    public function get_student_payment_list($s_id,$fdate,$tdate){
      $fd=date("Y-m-d", strtotime($fdate));
 	 $td=date("Y-m-d", strtotime($tdate));
@@ -610,6 +617,7 @@ class Student_model extends CI_Model
 	$this->db->where("DATE_FORMAT(student_fee.create_at,'%Y-%m-%d') >=",$fd);
 	$this->db->where("DATE_FORMAT(student_fee.create_at,'%Y-%m-%d') <=",$td);
 	$this->db->where('student_fee.school_id',$s_id);
+	$this->db->where('student_fee.status',1);
 	return $this->db->get()->result_array();
 	}
     public function get_student_total_payment_list($s_id,$fdate,$tdate){
@@ -619,6 +627,7 @@ class Student_model extends CI_Model
 	$this->db->where("DATE_FORMAT(student_fee.create_at,'%Y-%m-%d') >=",$fd);
 	$this->db->where("DATE_FORMAT(student_fee.create_at,'%Y-%m-%d') <=",$td);
 	$this->db->where('student_fee.school_id',$s_id);
+	$this->db->where('student_fee.status',1);
 	return $this->db->get()->row_array();
 	}
 	/* student bus payment reports */
@@ -631,6 +640,7 @@ class Student_model extends CI_Model
 	$this->db->where("DATE_FORMAT(student_bus_payment.create_at,'%Y-%m-%d') >=",$fd);
 	$this->db->where("DATE_FORMAT(student_bus_payment.create_at,'%Y-%m-%d') <=",$td);
 	$this->db->where('student_bus_payment.s_id',$s_id);
+	$this->db->where('student_bus_payment.status',1);
 	return $this->db->get()->result_array();
 	}
 	public function get_student_total_bus_payment_list($s_id,$fdate,$tdate){
@@ -640,6 +650,7 @@ class Student_model extends CI_Model
 	$this->db->where("DATE_FORMAT(student_bus_payment.create_at,'%Y-%m-%d') >=",$fd);
 	$this->db->where("DATE_FORMAT(student_bus_payment.create_at,'%Y-%m-%d') <=",$td);
 	$this->db->where('student_bus_payment.s_id',$s_id);
+	$this->db->where('student_bus_payment.status',1);
 	return $this->db->get()->row_array();
 	}
 	public function get_student_name_list($id,$s_id){
@@ -682,7 +693,10 @@ class Student_model extends CI_Model
      $this->db->where('send_student_sms.status',1);
 	 return $this->db->get()->result_array();
 	}
-	
+	public function update_student_fee_payment($id,$data){
+   $this->db->where('s_id',$id);
+	return $this->db->update("student_fee",$data);
+	}
 
 
 }

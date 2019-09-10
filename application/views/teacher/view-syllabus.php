@@ -21,6 +21,7 @@
 						<tr>
 						  <th>Class</th>
 						   <th>File</th>
+						   <th>Date & Time</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -33,7 +34,7 @@
 							<?php } ?>
 							
 							</td>
-						  
+						   <td><?php echo isset($list['created_at'])?$list['created_at']:''?></td>
 						</tr>
 						
 						</tbody>

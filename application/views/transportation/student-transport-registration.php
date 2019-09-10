@@ -227,8 +227,8 @@
                   <td><?php if($list['status']==1){ echo "active";}else{ echo "Deactive"; } ?></td>
 				  <td>
 				   <a href="javascript;void(0);"  data-toggle="modal" data-target="#squarespaceModal<?php echo $list['s_t_id']; ?>"  title="View"><i class="fa fa-eye btn btn-primary"></i></a>
-				<!--<a href="<?php echo base_url('transportation/studentedit/'.base64_encode($list['s_t_id'])); ?>"  data-toggle="tooltip" title="Edit"><i class="fa fa-pencil btn btn-success"></i></a>
-				<a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['s_t_id'])).'/'.base64_encode(htmlentities($list['status']));?>');adminstatus('<?php echo $list['status'];?>')" data-toggle="modal" data-target="#myModal" title="Edit"><i class="fa fa-info-circle btn btn-warning"></i></a>-->
+				<a href="<?php echo base_url('transportation/studentedit/'.base64_encode($list['s_t_id'])); ?>"  data-toggle="tooltip" title="Edit"><i class="fa fa-pencil btn btn-success"></i></a>
+				<a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['s_t_id'])).'/'.base64_encode(htmlentities($list['status']));?>');adminstatus('<?php echo $list['status'];?>')" data-toggle="modal" data-target="#myModal" title="Edit"><i class="fa fa-info-circle btn btn-warning"></i></a>
 				<a href="javascript;void(0);" onclick="admindedelete('<?php echo base64_encode($list['s_t_id']) ?>');admindedeletemsg();" data-toggle="modal" data-target="#myModal" title="Delete"><i class="fa fa-trash btn btn-danger"></i></a>
 				</td> 
 				  
@@ -306,7 +306,7 @@
 											  
 											  <div class="row">
 												  <div class="col-md-6 col-xs-6 col-sm-6">
-													<strong>Email</strong>
+													<strong>Parent Email</strong>
 												  </div>
 												  <div class="col-md-6 col-xs-6 col-sm-6">
 												  <?php echo isset($list['parent_email'])?$list['parent_email']:''; ?>

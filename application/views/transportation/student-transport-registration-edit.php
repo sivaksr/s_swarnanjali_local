@@ -173,7 +173,7 @@
 								<div class="form-group">
 								<label class=" control-label">Amount</label>
 								<div class="">
-									<select id="total_amount" name="total_amount"  readonly="true" class="form-control" >
+									<select id="total_amount" name="total_amount"   class="form-control" >
 									<option value="">Select</option>
 									<?php foreach ($total_amount as $list){ ?>
 								<?php if($list['amount']==$student['total_amount']){ ?>
