@@ -307,7 +307,7 @@
 			
 			
 			<li class="treeview">
-				  <a href="<?php echo base_url('teacher'); ?>">
+				 <a href="#">
 					<i class="fa fa-user"></i> <span>Teacher Modules</span>
 					<span class="pull-right-container">
 					  <i class="fa fa-angle-left pull-right"></i>
