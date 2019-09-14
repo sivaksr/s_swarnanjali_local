@@ -99,8 +99,8 @@ table, th, td {
 	   <tr>
 		<th>Class</th>
 		<th>Name</th>
-		<th>Adminssion Number</th>
-		<th>Pay Amount</th>
+		<th>Admission Number</th>
+		<th>Paid Amount</th>
 		<th>Date</th>
 	  </tr>
 	 

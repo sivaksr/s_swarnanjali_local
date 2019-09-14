@@ -289,6 +289,34 @@ class Principal_model extends CI_Model
 		$this->db->order_by('student_attendenc_reports.time','asc');
 		return $this->db->get()->result_array();
 	} 
+	/* principal assign assign instructions induvall teacher */ 
+	public function principal_assign_instructions_teacher($u_id,$s_id){
+	 $this->db->select('users.name,users.mobile,teachers.p_a_id,teachers.p_a_id,teachers.t_id')->from('teachers');
+     $this->db->join('users', 'users.u_id = teachers.teacher_ids', 'left');
+	$this->db->where('teachers.status',1);
+	$this->db->where('teachers.s_id',$s_id);
+	$this->db->where('teachers.teacher_ids',$u_id);
+	 $return=$this->db->get()->result_array();
+	  foreach($return as $list){
+	   $lists=$this->get_instractions_list($list['p_a_id']);
+	   $data[$list['p_a_id']]=$list;
+	   $data[$list['p_a_id']]['teacher']=$lists;
+	   
+	  }
+	if(!empty($data)){
+	   
+	   return $data;
+	   
+	  }
+ }
+	public function get_instractions_list($p_a_id){
+	$this->db->select('teacher_modules.modules,principal_assign_instractions.p_a_id,principal_assign_instractions.teacher_modules,principal_assign_instractions.instractions,principal_assign_instractions.created_at')->from('principal_assign_instractions');
+	$this->db->join('teacher_modules', 'teacher_modules.t_m_id = principal_assign_instractions.teacher_modules', 'left');
+	$this->db->where('principal_assign_instractions.status',1);
+	 $this->db->where('principal_assign_instractions.p_a_id',$p_a_id);
+	 return $this->db->get()->result_array();
+	}
+	
 	
 	
 	

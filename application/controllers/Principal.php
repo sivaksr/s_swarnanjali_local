@@ -139,8 +139,13 @@ public function __construct()
 				if($login_details['role_id']==12 || $login_details['role_id']==3){
 					$detail=$this->School_model->get_resources_details($login_details['u_id']);
 					$data['teacher_list']=$this->Principal_model->get_principal_assign_instructions_teachers($detail['s_id']);
+				     $this->load->view('principal/list',$data);
+					  $this->load->view('html/footer');
+				}else if($login_details['role_id']==6){
+					$detail=$this->School_model->get_resources_details($login_details['u_id']);
+					$data['teacher_list']=$this->Principal_model->principal_assign_instructions_teacher($login_details['u_id'],$detail['s_id']);
 					//echo'<pre>';print_r($data);exit;
-					$this->load->view('principal/list',$data);
+					$this->load->view('principal/assign_instr_teacher',$data);
 					$this->load->view('html/footer');
 				}else{
 						$this->session->set_flashdata('error',"you don't have permission to access");

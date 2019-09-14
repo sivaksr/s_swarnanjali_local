@@ -53,14 +53,14 @@
 							<div class="form-group">
 								<label class=" control-label">From Time</label>
 								<div class="">
-									<input placeholder="Enter From Time"  name="form_time" class="form-control" value="<?php echo isset($details['form_time'])?$details['form_time']:''?>">
+									<input type="time" placeholder="Enter From Time"  name="form_time" class="form-control" value="<?php echo isset($details['form_time'])?$details['form_time']:''?>">
 								</div>
 							</div>
                         </div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class=" control-label">To Time</label>
-								<input placeholder="Enter From To" name="to_time" class="form-control"  value="<?php echo isset($details['to_time'])?$details['to_time']:''?>">
+								<input type="time" placeholder="Enter From To" name="to_time" class="form-control"  value="<?php echo isset($details['to_time'])?$details['to_time']:''?>">
 							</div>
                         </div>
 						
