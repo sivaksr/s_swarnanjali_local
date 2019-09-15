@@ -34,7 +34,7 @@
 							<td>
 							<?php if(isset($list['teacher'])&& count($list['teacher'])>0){?>
 							<?php foreach($list['teacher'] as $lis) { ?>
-							<li><?php echo $lis['modules']. '<br>'; ?></li>
+							<?php echo $lis['modules']. '<br>'; ?>
 							<?php } ?>
 							<?php } ?>
 							</td>	 
@@ -47,14 +47,14 @@
                           <td>
 							<?php if(isset($list['teacher'])&& count($list['teacher'])>0){?>
 							<?php foreach($list['teacher'] as $lis) { ?>
-							<li><?php echo $lis['instractions']. '<br>'; ?></li>
+							<?php echo $lis['instractions']. '<br>'; ?>
 							<?php } ?>
 							<?php } ?>
 							</td>	 
 							<td>
 							<?php if(isset($list['teacher'])&& count($list['teacher'])>0){?>
 							<?php foreach($list['teacher'] as $lis) { ?>
-							<li><?php echo $lis['created_at']. '<br>'; ?></li>
+							<?php echo $lis['created_at']. '<br>'; ?>
 							<?php } ?>
 							<?php } ?>
 							</td>	 

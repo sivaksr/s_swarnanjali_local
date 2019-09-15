@@ -22,7 +22,7 @@
             </ul>
             <div class="tab-content">
               <div class="tab-pane  <?php if(isset($tab) && $tab==''){ echo "active"; } ?>" id="tab_1">
-              <form id="defaultForm" method="POST" class="" action="<?php echo base_url('transportation/student_transport_registration_post');?>">
+              <form onsubmit="return get_total_amt();" id="defaultForm" method="POST" class="" action="<?php echo base_url('transportation/student_transport_registration_post');?>">
 					
 						<div class="row">
 						
@@ -157,7 +157,7 @@
 								<div class="form-group">
 								<label class=" control-label">Pay Amount</label>
 								<div class="">
-									<input id="pay_amount" name="pay_amount"  class="form-control"  placeholder="Enter Pay Amount">
+									<input id="pay_amount" name="pay_amount"  class="form-control"  placeholder="Enter Pay Amount" >
 									
 								</div>
 								
@@ -400,6 +400,14 @@
 </div>
   
  <script>
+ function get_total_amt(sval){
+		var paid_amount=$('#pay_amount').val();
+		var t_amount=$('#total_amount').val();
+		if(t_amount<paid_amount){
+		alert('pay amount not accept greater than total amount');return false;	
+		}
+ 
+ }
 function get_route_stops_student(route){
 	if(route !=''){
 		    jQuery.ajax({

@@ -29,7 +29,7 @@
         <div class="col-md-12">
           <!-- general form elements -->
           <div class="box box-primary">
-            <form id="defaultForm" method="post" class="" action="<?php echo base_url('student/addpost'); ?>" enctype="multipart/form-data">
+            <form  onsubmit="return get_total_amt();" id="defaultForm" method="post" class="" action="<?php echo base_url('student/addpost'); ?>" enctype="multipart/form-data">
 			
 			<input type="hidden" name="role_id" id="role_id" value="7">
 						<div class="col-md-6">
@@ -670,6 +670,16 @@
   </div>
  <!-- load jQuery UI CSS theme -->
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" type="text/css" media="all">
+ <script>
+ function get_total_amt(sval){
+		var paid_amount=$('#pay_amount').val();
+		var t_amount=$('#fee_amount').val();
+		if(t_amount<paid_amount){
+		alert('pay amount not accept greater than total amount');return false;	
+		}
+ 
+ }
+ </script>
  <script>
  $(function() {
   var $dp1 = $("#datepicker1");

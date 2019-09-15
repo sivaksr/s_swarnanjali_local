@@ -270,16 +270,16 @@ span.round-tab:hover {
 							 
 							</tbody>
 						  </table>
-						    <form action="<?php echo base_url('payment/buspay'); ?>" method="post">
+						    <form onsubmit="return get_total_amt();" action="<?php echo base_url('payment/buspay'); ?>" method="post">
 							<div class="form-group col-md-12">
 								<label class=" control-label"><h3>Enter your present pay Amount</h3></label>
 								<div class="col-md-6">
 									<input type="hidden"  name="student_id" id="student_id"  value="<?php echo isset($student_details['student_id'])?$student_details['student_id']:''; ?>">
-									<input type="text" class="form-control" name="amount" id="amount" placeholder="Enter amount here" value="<?php echo isset($last_payment_details[0]['total_amount'])?$last_payment_details[0]['total_amount']-$total_pay:''; ?>">
+									<input type="text" class="form-control" name="amount" id="amount" placeholder="Enter amount here" value="<?php echo isset($last_payment_details[0]['total_amount'])?$last_payment_details[0]['total_amount']-$total_pay:''; ?>"  required>
 								
 								</div>
 								<div class="col-md-6">
-									<select name="payment_type" id="payment_type" class="form-control">
+									<select name="payment_type" id="payment_type" class="form-control" required>
 									<option value="">Select</option>
 									<!--<option value="1">Online</option>-->
 									<option value="2">Cash mode</option>
@@ -341,6 +341,16 @@ span.round-tab:hover {
       
     </div>
   </div>
+  <script>
+  function get_total_amt(sval){
+		var paid_amount=$('#amount').val();
+		var t_amount=<?php echo isset($last_payment_details[0]['total_amount'])?$last_payment_details[0]['total_amount']-$total_pay:''; ?>;
+		if(t_amount<paid_amount){
+		alert('pay amount not accept greater than total amount');return false;	
+		}
+ 
+ }
+  </script>
  <script>
 $(document).ready(function () {
     //Initialize tooltips
