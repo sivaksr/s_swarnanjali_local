@@ -89,7 +89,7 @@ public function __construct()
 			//echo '<pre>';print_r($server_output);exit;
             curl_close($ch2);
 		$this->session->set_flashdata('success','Principal assign to teachers instructions sucessfully send');
-		redirect('principal');	
+		redirect('principal/lists');	
 		}else{
 			$this->session->set_flashdata('error','technical problem will occurred. Please try again.');
 			redirect('principal');	
