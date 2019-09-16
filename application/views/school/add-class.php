@@ -109,7 +109,7 @@
                   <th style="display:none">id </th>
 				  <th>#</th>
                   <th>Type</th>
-                  <th>Name</th>
+                  <th>Class</th>
                   <th>Section</th>
                   <th>capacity</th>
                   <th>Created Date </th>
@@ -148,7 +148,7 @@
 				  <th style="display:none">id </th>
                    <th>#</th>
 				   <th>Type</th>
-                  <th>Name</th>
+                  <th>Class</th>
                   <th>Section</th>
                   <th>capacity</th>
                   <th>Created Date </th>

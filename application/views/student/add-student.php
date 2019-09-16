@@ -313,7 +313,7 @@
                                 <input type="text" class="form-control" name="parent_email" placeholder="Enter Email address" />
                             </div>
                         </div>
-						<div class="row">   
+						<!--<div class="row">   
 								<div class=" col-md-6">
 									<div class="form-group">
 									<label class=" control-label">Password</label>
@@ -330,8 +330,8 @@
 										</div>
 									</div>
 								</div>
-						        </div>
-							<div class="row">
+						        </div>-->
+							<!--<div class="row">
 								<div class=" col-md-6">
 									<div class="form-group">
 									<label class=" control-label">Education</label>
@@ -348,7 +348,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div>-->
 							
 							<div class="row">
 								<div class=" col-md-12">
@@ -695,7 +695,7 @@
   $dp2.datepicker({
     changeYear: true,
     changeMonth: true,
-	maxDate:0,
+	maxDate:-1,
     yearRange: "-80:+80",
     dateFormat: "mm/dd/yy",
   });
@@ -762,14 +762,15 @@ $(document).ready(function() {
             },
 			dob: {
                 validators: {
-					
+					notEmpty: {
+								message: 'Date of Birth is required'
+						},
                     date: {
                         format: 'MM/DD/YYYY',
                         message: 'The value is not a valid date'
                     }
                 }
             },
-            
 			phone: {
                  validators: {
 					notEmpty: {
@@ -924,6 +925,9 @@ $(document).ready(function() {
             },
 			doj: {
                 validators: {
+                   notEmpty: {
+								message: 'Date of Join is required'
+						},
                     date: {
                         format: 'MM/DD/YYYY',
                         message: 'The value is not a valid date'

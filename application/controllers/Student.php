@@ -24,7 +24,7 @@ public function __construct()
 
 				//echo '<pre>';print_r($data);exit;
 				$this->load->view('student/add-student',$data);
-				$this->load->view('html/footer2');
+				$this->load->view('html/footer');
 			}else{
 					$this->session->set_flashdata('error',"you don't have permission to access");
 					redirect('dashboard');
@@ -72,7 +72,7 @@ public function __construct()
 				$data['class_list']=$this->Student_model->get_school_class_list($detail['s_id']);
 				//echo '<pre>';print_r($data);exit;
 				$this->load->view('student/edit-student',$data);
-				$this->load->view('html/footer2');
+				$this->load->view('html/footer');
 			}else{
 					$this->session->set_flashdata('error',"you don't have permission to access");
 					redirect('dashboard');
@@ -91,6 +91,7 @@ public function __construct()
 				$post=$this->input->post();
 				//echo'<pre>';print_r($post);exit;
 				$detail=$this->Student_model->get_resources_details($login_details['u_id']);
+				/*
 				$check_email_mobile=$this->Home_model->check_email_mobile_exits($post['parent_email'],$post['mobile']);
 					if(($check_email_mobile)>0){
 						$this->session->set_flashdata('error',"Both Email Id and Mobile number already exists. Please use another Email Id and Mobile Number");
@@ -108,7 +109,7 @@ public function __construct()
 						$this->session->set_flashdata('error',"Mobile Number already exists. Please use another Mobile Number");
 						redirect('student');
 					}
-			
+			*/
 					if(isset($_FILES['profile_pic']['name']) && $_FILES['profile_pic']['name']!=''){
 						$temp = explode(".", $_FILES["profile_pic"]["name"]);
 						$image = round(microtime(true)) . '.' . end($temp);
@@ -212,6 +213,7 @@ public function __construct()
 				$post=$this->input->post();
 				//echo '<pre>';print_r($post);exit;
 				$detail=$this->Student_model->get_student_details($post['student_id']);
+				/*
 				if($detail['parent_email']!=$post['parent_email'] || $detail['mobile']!=$post['mobile'] ){
 				$check_email_mobile=$this->Home_model->check_email_mobile_exits($post['parent_email'],$post['mobile']);
 					if(($check_email_mobile)>0){
@@ -234,7 +236,7 @@ public function __construct()
 						redirect('student/edit/'.base64_encode($post['student_id']));
 					}
 				}
-				
+				*/
 					if(isset($_FILES['profile_pic']['name']) && $_FILES['profile_pic']['name']!=''){
 						unlink('assets/adminpic/'.$detail['profile_pic']);
 						$temp = explode(".", $_FILES["profile_pic"]["name"]);

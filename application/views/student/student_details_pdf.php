@@ -304,14 +304,14 @@
 						<td>Mobile</td>
 						<th>: <?php echo isset($student_list['mobile'])?$student_list['mobile']:''?></th>
 				  </tr>
-				  <tr>
+				  <!--<tr>
 						<td>Education</td>
 						<th>: <?php echo isset($student_list['education'])?$student_list['education']:''?></th>
 				  </tr> 
 				  <tr>
 						<td>Profession</td>
 						<th>: <?php echo isset($student_list['profession'])?$student_list['profession']:''?></th>
-				  </tr>
+				  </tr>-->
 			
 				 
 				  </table>

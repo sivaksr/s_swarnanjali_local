@@ -79,51 +79,56 @@ class Home extends CI_Controller {
 			redirect('dashboard');
 		}
 	}
-	
 	public function forgotpost(){
 		$post=$this->input->post();
 		$check_email=$this->Home_model->check_emails_exits($post['email']);
 			if(count($check_email)>0){
+				
 				$this->load->library('email');
 				$this->email->set_newline("\r\n");
 				$this->email->set_mailtype("html");
-				$this->email->from($post['email']);
-				$this->email->to('admin@grfpublishers.org');
-				$this->email->subject('forgot - password');
+				$this->email->to($check_email['email']);
+				$this->email->from('admin@swarnanjali.com', 'Swarnanjali'); 
+				$this->email->subject('Forgot Password'); 
 				$body = "<b> Your Account login Password is </b> : ".$check_email['org_password'];
 				$this->email->message($body);
-				if($this->email->send()){
-				$this->session->set_flashdata('success',"Password sent to your registered email address. Please Check your registered email address");
+				if ($this->email->send())
+				{
+					$this->session->set_flashdata('success',"Password sent to your registered email address. Please Check your registered email address");
+					redirect('home');
 				}else{
-				$this->session->set_flashdata('error',"In Localhost mail  didn't sent");	
+					$this->session->set_flashdata('error'," In Localhost mail  didn't sent");
+					redirect('home');
 				}
-				redirect('home');
-			}else{
-				
-			$check_emails=$this->Home_model->check_email_or_mobile_exits($post['email']);
+				}else{
+            $check_emails=$this->Home_model->check_email_or_mobile_exits($post['email']);
 			if(count($check_emails)>0){
+				
 				$this->load->library('email');
 				$this->email->set_newline("\r\n");
 				$this->email->set_mailtype("html");
-				$this->email->from($check_emails['email']);
-				$this->email->to('admin@grfpublishers.org');
-				$this->email->subject('forgot - password');
+				$this->email->to($check_emails['email']);
+				$this->email->from('admin@swarnanjali.com', 'Swarnanjali'); 
+				$this->email->subject('Forgot Password'); 
 				$body = "<b> Your Account login Password is </b> : ".$check_emails['parent_org_password'];
 				$this->email->message($body);
-				//echo'<pre>';print_r($body);exit;
-				if($this->email->send()){
-				$this->session->set_flashdata('success',"Password sent to your registered email address. Please Check your registered email address");
+				if ($this->email->send())
+				{
+					$this->session->set_flashdata('success',"Password sent to your registered email address. Please Check your registered email address");
+					redirect('home');
 				}else{
-				$this->session->set_flashdata('error',"In Localhost mail  didn't sent");	
+					$this->session->set_flashdata('error'," In Localhost mail  didn't sent");
+					redirect('home');
 				}
-				redirect('home');
-			}	
-				$this->session->set_flashdata('error',"Invalid email id. Please try again once");
-				redirect('home/forgotpassword');	
+			}
+				
+			
+				$this->session->set_flashdata('error','The email you entered is not a registered email. Please try again. ');
+				redirect('home');	
 			}
 		
-	}
-	
+}
+
 	
 	
 	
